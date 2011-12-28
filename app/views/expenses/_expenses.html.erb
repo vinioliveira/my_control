@@ -1,0 +1,24 @@
+<h2> Despesas </h2>
+<table id="expenses">
+	<thead>
+		<tr>
+			<th>#</th>	
+			<th>Montante</th>
+			<th>Vencimento</th>
+			<th>Descricação</th>
+			<th><%= link_to image_tag('/assets/form/add-action.png'), new_expense_path, method: :get, :remote => true %></th>
+	  </tr>
+	</th>
+  </thead>
+  <tbody>
+	<% @expenses.each do |expense| %>
+		<tr id="<%= expense.id %>">
+			<td>#</td>
+			<td><%= number_to_currency expense.amount %></td>
+			<td><%= expense.due_date.strftime "%d/%m/%Y" %></td>
+			<td><%= expense.description %></td>
+			<td class="action"><%= render :partial => 'shared/actions', :locals => { :model => expense, :edit_path => edit_expense_path(expense) } %></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

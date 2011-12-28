@@ -1,0 +1,11 @@
+<% if @expense.errors.any? %> 
+<%= render :partial => 'form' %>
+<% elsif %>
+	window.hideModal('#modal-expense');
+	$row = $('#expenses tr#<%= @expense.id%>');
+	$row.fadeOut(500, function(){ 
+	    $row.before("<%= escape_javascript(render(:partial => 'item', :locals => {:expense => @expense} )) %>"); 
+	    $row.remove();
+	});
+	<%= render :partial => 'shared/balance' %>
+<% end %>

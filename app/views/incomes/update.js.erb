@@ -1,0 +1,13 @@
+<% if @income.errors.any? %> 
+	<%= render :partial => 'form' %>
+<% elsif %>
+	window.hideModal('#modal-income');
+	
+	$row = $('#incomes tr#<%= @income.id%>');
+	$row.fadeOut(500, function(){ 
+		$row.before("<%= escape_javascript(render(:partial => 'item', :locals => {:income => @income} )) %>"); 
+		$row.remove();
+	});
+	
+	<%= render :partial => 'shared/balance' %>
+<% end %>

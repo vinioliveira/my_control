@@ -1,0 +1,7 @@
+<tr id="<%= expense.id %>">
+  <td>#</td>
+  <td><%= number_to_currency expense.amount %></td>
+  <td><%= expense.due_date.strftime "%d/%m/%Y" %></td>
+  <td><%= expense.description %></td>
+	<td class="action"><%= render :partial => 'shared/actions', :locals => { :model => expense , :edit_path => edit_expense_path(expense) } %></td>
+</tr>

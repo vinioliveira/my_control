@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mycontrol</title>
+	<%= stylesheet_link_tag    "application" %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+	<header class="master">
+		<div class="topbar">
+			<div class="fill">
+				<div class="container">
+					<%= link_to "MyControl", root_path, :class => 'brand' %>
+					<% if current_user %>
+					<p class="pull-right">Logged as <a href="#"><%= current_user.name  %></a> - <%= link_to "logout", logout_path %></p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container" >
+		<% if notice %>
+		<div class="alert-message success fade in" data-alert="alert">
+			<a class="close" href="#">×</a>
+			<p><%= notice %></p>
+		</div>
+		<% end %>
+
+		<div class="row">
+			<div class="span16">
+				<%= yield :subtitle %>		
+			</div>
+			<div class="span15">
+				<ul class="tabs">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">Profile</a></li>
+				</ul>
+			</div>
+			<div class="span15">
+				<%= yield %>
+			</div>
+		</div>
+	</div>
+</div>
+<%= javascript_include_tag "application" %> 
+<%= yield :javascript %>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<%= simple_form_for @expense, :wrapper => :inline, :remote => true do|f| %>
+
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :amount, :input_html => { :class => "money", :alt => 'decimal', :value => number_with_precision(@expense.amount, :precision => 2) } %>
+    <%= f.input :due_date, :as => :date_picker %>
+    <%= f.input :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

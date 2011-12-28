@@ -1,0 +1,3 @@
+$row = $('#expenses tr#<%= @expense_id%>');
+$row.fadeOut(500, function(){ $row.remove()});
+<%= render :partial => 'shared/balance' %>

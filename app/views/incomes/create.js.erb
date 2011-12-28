@@ -1,0 +1,7 @@
+<% if @income.errors.any? %> 
+	<%= render :partial => 'form' %>
+<% elsif %>
+	window.hideModal('#modal-income');
+	$('#incomes').append("<%= escape_javascript(render(:partial => 'item', :locals => {:income => @income} )) %>");
+	<%= render :partial => 'shared/balance' %>
+<% end %>

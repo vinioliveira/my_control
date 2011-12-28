@@ -1,0 +1,7 @@
+<% if @expense.errors.any? %> 
+	<%= render :partial => 'form' %>
+<% elsif %>
+	window.hideModal('#modal-expense');
+	$('#expenses').append("<%= escape_javascript(render(:partial => 'item', :locals => {:expense => @expense} )) %>");
+	<%= render :partial => 'shared/balance' %>
+<% end %>
