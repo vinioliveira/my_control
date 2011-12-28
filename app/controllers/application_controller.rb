@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   
   protect_from_forgery
-  
+  layout :layout_by_resource
+
   before_filter :authenticate_user!
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -11,6 +12,14 @@ class ApplicationController < ActionController::Base
   end
   
   protected
+  
+  def layout_by_resource
+    if devise_controller?
+      "session"
+    else
+      "application"
+    end
+  end
   
   def standardise_numbers
     unless params[controller_name.singularize][:amount].nil?
