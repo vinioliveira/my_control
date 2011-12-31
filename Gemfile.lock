@@ -203,4 +203,4 @@ DEPENDENCIES
   ruby-debug19
   simple_form!
   turn
-  uglifier
+  uglifier (>= 1.0.3)
