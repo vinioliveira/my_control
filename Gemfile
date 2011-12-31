@@ -23,6 +23,9 @@ group :test do
   gem 'capybara'
 end
 
+group :assets do
+  gem 'uglifier'
+end
 
 group :development do 
 	gem 'capistrano'
