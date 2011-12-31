@@ -8,6 +8,10 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'ruby-debug19', :require => 'ruby-debug'
 
+
+gem 'execjs'
+gem 'therubyracer'
+
 #Auth 
 gem 'devise'
 gem 'cancan'
