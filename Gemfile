@@ -24,5 +24,5 @@ end
 
 
 group :development do 
-	# gem 'capistrano'
+	gem 'capistrano'
 end 
