@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mycontrol</title>
-	<%= stylesheet_link_tag    "application" %>
+	<title>MyControl</title>
+	<%= stylesheet_link_tag "application" %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
@@ -12,7 +12,7 @@
 				<div class="container">
 					<%= link_to "MyControl", root_path, :class => 'brand' %>
 					<% if current_user %>
-					<p class="pull-right">Logged as <a href="#"><%= current_user.name  %></a> - <%= link_to "logout", logout_path %></p>
+					<p class="pull-right">Logged as <a href="#"><%= current_user.name %></a> - <%= link_to "logout", logout_path %></p>
 					<% end %>
 				</div>
 			</div>
