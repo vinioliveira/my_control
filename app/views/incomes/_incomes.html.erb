@@ -4,20 +4,20 @@
   	<tr>
 	    <th>#</th>	
 	    <th>Montante</th>
-	    <th>Data Vencimento</th>
+	    <th>Data do Crédito</th>
 	    <th>Descricação</th>
-			<th><%= link_to image_tag('/assets/form/add-action.png'), new_income_path, method: :get, :remote => true %></th>
+		<th><%= link_to image_tag('/assets/form/add-action.png'), new_income_path, method: :get, :remote => true %></th>
 	  </tr>
 	</th>
   </thead>
   <tbody>
 	<% @incomes.each do |income| %>
 	  <tr id="<%= income.id %>">
-			<td>#</td>
+		<td>#</td>
 	    <td><%= number_to_currency income.amount %></td>
 	    <td><%= income.date_of_credit.strftime "%d/%m/%Y" %></td>
 	    <td><%= income.description %></td>
-			<td class="action"><%= render :partial => 'shared/actions', :locals => { :model => income, :edit_path => edit_income_path(income)} %></td>
+		<td class="action"><%= render :partial => 'shared/actions', :locals => { :model => income, :edit_path => edit_income_path(income)} %></td>
 	  </tr>
 	<% end %>
   </tbody>
