@@ -5,6 +5,10 @@
     <%= f.input :amount, :input_html => { :class => "money", :alt => 'decimal',:value => number_with_precision(@income.amount, :precision => 2)} %>
     <%= f.input :date_of_credit, :as => :date_picker %>
     <%= f.input :description %>
+		<%= f.input :category do  %> 
+			<%= f.select :category_id, @categories.map { |c| [c.description, c.id] }, :prompt => "Selecione Categoria" %>
+			<%= link_to image_tag('/assets/form/add-action.png'), new_category_path, method: :get, :remote => true  %>
+		<% end %>
   </div>
 
   <div class="actions">

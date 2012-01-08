@@ -5,6 +5,7 @@ class HomeController < ApplicationController
     @incomes = current_user.incomes
     @expense = Expense.new
     @income = Income.new
-    #TODO relevar apenas valores mensais 
+    @category = Category.new
+    #TODO exibir apenas valores mensais 
   end
 end

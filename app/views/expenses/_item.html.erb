@@ -1,6 +1,11 @@
 <tr id="<%= expense.id %>">
   <td>#</td>
   <td><%= number_to_currency expense.amount %></td>
+	<% if expense.category %>
+		<td><span class="label" style="background-color:<%= expense.category.color %>"><%= expense.category.description %></span></td>
+	<% else %>
+		<td></td>
+	<% end %>
   <td><%= expense.due_date.strftime "%d/%m/%Y" %></td>
   <td><%= expense.description %></td>
 	<td class="action"><%= render :partial => 'shared/actions', :locals => { :model => expense , :edit_path => edit_expense_path(expense) } %></td>

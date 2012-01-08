@@ -1,6 +1,7 @@
 class ExpensesController < ApplicationController
 
-  before_filter :standardise_numbers, :only => [ :create, :update ]  
+  before_filter :standardise_numbers, :only => [ :create, :update ] 
+  before_filter :load_resources, :only => [:new, :edit, :create, :update] 
   
   # GET /expenses
   # GET /expenses.json
@@ -86,4 +87,9 @@ class ExpensesController < ApplicationController
       format.js
     end
   end
+  
+  protected 
+    def load_resources 
+      @categories = Category.all
+    end
 end

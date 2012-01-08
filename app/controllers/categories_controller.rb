@@ -1,12 +1,12 @@
 class CategoriesController < ApplicationController
+  
   # GET /categories
   # GET /categories.json
   def index
     @categories = Category.all
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @categories }
+      format.js # index.html.erb
     end
   end
 
@@ -16,8 +16,8 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @category }
+      format.json{ render json: @expense }
+      format.js 
     end
   end
 
@@ -25,10 +25,8 @@ class CategoriesController < ApplicationController
   # GET /categories/new.json
   def new
     @category = Category.new
-
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @category }
+      format.js 
     end
   end
 
@@ -43,13 +41,8 @@ class CategoriesController < ApplicationController
     @category = Category.new(params[:category])
 
     respond_to do |format|
-      if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
-        format.json { render json: @category, status: :created, location: @category }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
-      end
+      @category.save
+      format.js 
     end
   end
 
@@ -60,11 +53,9 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
-        format.json { head :ok }
+        format.js 
       else
-        format.html { render action: "edit" }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.js 
       end
     end
   end
@@ -76,8 +67,7 @@ class CategoriesController < ApplicationController
     @category.destroy
 
     respond_to do |format|
-      format.html { redirect_to categories_url }
-      format.json { head :ok }
+      format.js 
     end
   end
 end

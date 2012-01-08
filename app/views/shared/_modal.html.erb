@@ -4,7 +4,9 @@
 	<h3><%= title %></h3>
 	</div>
 	<div class="modal-body">
-		<%= render :partial => renderize, :locals => locals  %>
+		<% unless renderize.nil? %>
+			<%= render :partial => renderize, :locals => locals  %>
+		<% end %>
 	</div>
 	<div class="modal-footer"></div>
 </div>

@@ -1,12 +1,16 @@
-<%= simple_form_for(@category) do |f| %>
+<%= simple_form_for @category, :wrapper => :inline, :remote => true  do |f| %>
   <%= f.error_notification %>
 
   <div class="inputs">
     <%= f.input :description %>
-    <%= f.input :color %>
+    <%= f.input :color, :as => :color_picker %>
   </div>
-
-  <div class="actions">
-    <%= f.button :submit %>
-  </div>
+	
+	<% if remote %>
+		<%= link_to "new category", '#', "data-faux-submit" => "new_category" %>
+	<% elsif %>
+  	<div class="actions">
+    	<%= f.button :submit %>
+  	</div>
+	<% end %>
 <% end %>

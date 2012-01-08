@@ -14,5 +14,6 @@
 	<%= render :partial => 'shared/balance', :locals => {:balance => @balance, } %>
 </div>
 
-<%= render :partial => 'shared/modal', :locals => { id:'expense', title:'Novo Pagamento', renderize:'expenses/form', locals:{} }  %>
-<%= render :partial => 'shared/modal', :locals => { id:'income', title:'Novo Recebimento', renderize:'incomes/form', locals:{} }  %>
+<%= render :partial => 'shared/modal', :locals => { id:'expense', title:'Novo Pagamento', renderize: nil, locals:{} }  %>
+<%= render :partial => 'shared/modal', :locals => { id:'income', title:'Novo Recebimento', renderize: nil, locals:{} }  %>
+<%= render :partial => 'shared/modal', :locals => { id:'category', title:'Nova Categoria', renderize: nil, locals:{} }  %>

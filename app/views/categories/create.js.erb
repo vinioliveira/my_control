@@ -1,0 +1,7 @@
+<% if @category.errors.any? %> 
+	<%= render :partial => 'form' %>
+<% elsif %>
+	$('#category').html('');
+	$('#income_category_id').append('<%= content_tag(:option, @category.description, :id => @category.id, :selected => true ) %>');
+	$('#expense_category_id').append('<%= content_tag(:option, @category.description, :id => @category.id, :selected => true ) %>');
+<% end %>

@@ -1,6 +1,12 @@
 <tr id="<%= income.id %>">
 	<td>#</td>
 	<td><%= number_to_currency income.amount %></td>
+	<% if income.category %>
+		<td><span class="label" style="background-color:<%= income.category.color %>"><%= income.category.description %></span></td>
+	<% else %>
+		<td></td>
+	<% end %>
+	
 	<td><%= income.date_of_credit.strftime "%d/%m/%Y" %></td>
 	<td><%= income.description %></td>
 	<td class="action"><%= render :partial => 'shared/actions', :locals => { :model => income, :edit_path => edit_income_path(income) } %></td>

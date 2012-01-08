@@ -8,24 +8,32 @@
 //= require jquery_ujs
 //= require bootstrap-alerts
 //= require bootstrap-dropdown
+//= require bootstrap-buttons
 //= require bootstrap-modal
 //= require jquery-ui
 //= require jquery.meio.mask.min
+//= require jquery.miniColors.min
 //= require_tree .
 
 
 $(function(global) {
 	
+	jQuery.ajaxSetup({ 
+	  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+	})
+	
 	$('a[data-code]').click(function() {
 		$('pre').toggle();
 	});
 	
-	window.openModal = function(modal) {
-		$(modal).modal({backdrop : true, show : true});
+	window.openModal = function(modal, options) {
+		$(modal).modal((options || {backdrop : true, show : true}));
 	};
+	
 	window.hideModal = function(modal) {
 		$(modal).modal('hide');
 	};
+	
 	window.validationForms = function() {
 		//Mask of numbers
 	 	$.mask.masks.number = { mask : '99999999999999'};
@@ -37,6 +45,9 @@ $(function(global) {
 	
 	$('.modal').bind('hidden', function() {
 		$('form')[0].reset();
-	})
+	});
+	
+	$('input.color_picker').miniColors();
+	
 	window.validationForms();
 });

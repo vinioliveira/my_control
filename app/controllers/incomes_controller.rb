@@ -1,6 +1,7 @@
 class IncomesController < ApplicationController
-  
+
   before_filter :standardise_numbers, :only => [ :create, :update ]  
+  before_filter :load_resources, :only => [:new, :edit] 
   
   # GET /incomes
   # GET /incomes.json
@@ -42,8 +43,10 @@ class IncomesController < ApplicationController
   # POST /incomes
   # POST /incomes.json
   def create
+    
     @income = Income.new(params[:income])
     @income.user = current_user
+    
     respond_to do |format|
       if @income.save
         format.json { render json: @income, status: :created, location: @income }
@@ -83,4 +86,10 @@ class IncomesController < ApplicationController
       format.js
     end
   end
+  
+  protected 
+    def load_resources 
+      @categories = Category.all
+    end
+  
 end
