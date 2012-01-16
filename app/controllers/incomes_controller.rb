@@ -1,7 +1,7 @@
 class IncomesController < ApplicationController
 
   before_filter :standardise_numbers, :only => [ :create, :update ]  
-  before_filter :load_resources, :only => [:new, :edit] 
+  before_filter :load_resources, :only => [:new, :edit, :create, :update] 
   
   # GET /incomes
   # GET /incomes.json
