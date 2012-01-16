@@ -19,8 +19,29 @@
 $(function(global) {
 	
 	jQuery.ajaxSetup({ 
-	  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+	  'beforeSend': function(xhr) { xhr.setRequestHeader("Accept", "text/javascript")}
 	})
+	
+	$('body')
+		.bind("ajax:beforeSend",function() { toggle(false) })
+		.bind("ajax:complete", function(){ toggle(true) });
+
+	
+	var toggle = function(done) {
+		if (done)
+			$("form[data-remote] input[type=submit]").removeAttr('disabled');
+		else 
+			$("form[data-remote] input[type=submit]").attr('disabled', 'disabled');
+	};
+	
+	var loadingHandle = function(e) {
+		var $this = $(this); 
+		$this.val('loading...');
+		$this.prop('disabled', true);
+	},
+	completeHandle = function(e) {
+
+	};
 	
 	$('a[data-code]').click(function() {
 		$('pre').toggle();
