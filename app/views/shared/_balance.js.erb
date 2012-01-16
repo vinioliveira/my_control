@@ -1,1 +1,3 @@
 $('#balance').html("<%= escape_javascript(calc_balance_formated) %>");
+$('#expense-amount').html("<%= escape_javascript(render(:partial => 'shared/expenses_amount')) %>");
+$('#income-amount').html("<%= escape_javascript(render(:partial => 'shared/incomes_amount')) %>");
