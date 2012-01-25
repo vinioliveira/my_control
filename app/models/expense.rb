@@ -3,7 +3,7 @@ class Expense < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
-  validates :user, :amount, :description, :due_date, :presence => true
+  validates :user, :amount, :description, :category, :due_date, :presence => true
   validates :amount, :format => { :with => /^\d+??(?:\.\d{0,2})?$/ }, :numericality => {:greater_than => 0} 
 
 

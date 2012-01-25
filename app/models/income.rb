@@ -3,7 +3,7 @@ class Income < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   
-  validates :user,  :amount, :description, :date_of_credit, :presence => true
+  validates :user,  :amount, :description, :category, :date_of_credit, :presence => true
   validates :amount, :numericality => {:greater_than => 0} 
   
   class << self 
