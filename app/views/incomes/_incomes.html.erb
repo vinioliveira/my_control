@@ -21,7 +21,7 @@
 			<% else %>
 				<td></td>
 			<% end %>
-	    <td><%= income.date_of_credit.strftime "%d/%m/%Y" %></td>
+	    <td><%= l(income.date_of_credit , :format => :only_date) %></td>
 	    <td><%= income.description %></td>
 		<td class="action"><%= render :partial => 'shared/actions', :locals => { :model => income, :edit_path => edit_income_path(income)} %></td>
 	  </tr>

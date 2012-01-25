@@ -21,11 +21,11 @@
 			<% else %>
 				<td></td>
 			<% end %>
-			<td><%= expense.due_date.strftime "%d/%m/%Y" %></td>
+			<td><%=l(expense.due_date , :format => :only_date) %></td>
 			<td><%= expense.description %></td>
 			<td class="action"><%= render :partial => 'shared/actions', :locals => { :model => expense, :edit_path => edit_expense_path(expense) } %></td>
 		</tr>
 	<% end %>
 	</tbody>
 </table>
-<div id ="expense-amount"/> <%= render 'shared/expenses_amount' %></div>
+<div  id ="expense-amount"/> <%= render 'shared/expenses_amount' %></div>

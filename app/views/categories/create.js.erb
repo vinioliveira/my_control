@@ -4,4 +4,5 @@
 	$('#category').html('');
 	$('#income_category_id').append('<%= content_tag(:option, @category.description, :id => @category.id, :selected => true ) %>');
 	$('#expense_category_id').append('<%= content_tag(:option, @category.description, :id => @category.id, :selected => true ) %>');
+	window.blockSubmits(false)
 <% end %>

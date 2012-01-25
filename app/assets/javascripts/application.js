@@ -23,15 +23,16 @@ $(function(global) {
 	})
 	
 	$('body')
-		.bind("ajax:beforeSend",function() { toggle(false) })
-		.bind("ajax:complete", function(){ toggle(true) });
+		.bind("ajax:beforeSend",function() { disableSubmits(true) })
+		.bind("ajax:complete", function(){ disableSubmits(false) });
 
 	
-	var toggle = function(done) {
-		if (done)
-			$("form[data-remote] input[type=submit]").removeAttr('disabled');
-		else 
+	window.disableSubmits = function(toBeDisable) {
+		if (toBeDisable)
 			$("form[data-remote] input[type=submit]").attr('disabled', 'disabled');
+		else 
+			$("form[data-remote] input[type=submit]").removeAttr('disabled');
+
 	};
 	
 	var loadingHandle = function(e) {
